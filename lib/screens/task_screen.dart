@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:todo_app/widgets/tasks_list.dart';
 
 class TasksScreen extends StatelessWidget {
   const TasksScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    bool isChecked = false;
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
@@ -42,11 +44,11 @@ class TasksScreen extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  '12 Tassk left',
+                  '12 Tasks left',
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 25.0,
-                    fontWeight: FontWeight.w100,
+                    fontSize: 18.0,
+                    // fontWeight: FontWeight.normal,
                   ),
                 ),
               ],
@@ -54,6 +56,7 @@ class TasksScreen extends StatelessWidget {
           ),
           Expanded(
             child: Container(
+              padding: EdgeInsets.symmetric(horizontal: 20.0),
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.only(
@@ -61,6 +64,7 @@ class TasksScreen extends StatelessWidget {
                   topRight: Radius.circular(20.0),
                 ),
               ),
+              child: TasksList(),
             ),
           ),
         ],
