@@ -1,16 +1,12 @@
+import 'package:todo_app/screens/add_tasks_screen.dart';
+
 import 'package:flutter/material.dart';
 import 'package:todo_app/widgets/tasks_list.dart';
 
 class TasksScreen extends StatelessWidget {
   const TasksScreen({Key? key}) : super(key: key);
 
-  Widget buildBottomSheet(BuildContext context) {
-    return Container(
-      child: Center(
-        child: Text('This is bottom sheet'),
-      ),
-    );
-  }
+  // Widget buildBottomSheet(context) => Container();
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +14,8 @@ class TasksScreen extends StatelessWidget {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          showModalBottomSheet(context: context, builder: buildBottomSheet);
+          showModalBottomSheet(
+              context: context, builder: (context) => AddTasksScreen());
         },
         backgroundColor: Colors.lightBlueAccent,
         child: Icon(Icons.add),
