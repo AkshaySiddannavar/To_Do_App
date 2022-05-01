@@ -6,8 +6,6 @@ import 'package:todo_app/widgets/tasks_list.dart';
 class TasksScreen extends StatelessWidget {
   const TasksScreen({Key? key}) : super(key: key);
 
-  // Widget buildBottomSheet(context) => Container();
-
   @override
   Widget build(BuildContext context) {
     bool isChecked = false;
@@ -15,7 +13,16 @@ class TasksScreen extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           showModalBottomSheet(
-              context: context, builder: (context) => AddTasksScreen());
+            context: context,
+            builder: (context) => SingleChildScrollView(
+              child: Container(
+                padding: EdgeInsets.only(
+                    bottom: MediaQuery.of(context).viewInsets.bottom),
+                child: AddTasksScreen(),
+              ),
+            ),
+            isScrollControlled: true,
+          );
         },
         backgroundColor: Colors.lightBlueAccent,
         child: Icon(Icons.add),
