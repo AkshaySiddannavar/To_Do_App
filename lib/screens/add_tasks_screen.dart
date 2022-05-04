@@ -1,7 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:todo_app/models/task.dart';
 
-class AddTasksScreen extends StatelessWidget {
-  const AddTasksScreen({Key? key}) : super(key: key);
+class AddTasksScreen extends StatefulWidget {
+  List<Task> listOfTasks = [];
+  AddTasksScreen(List<Task> listOfTasks);
+
+  @override
+  State<AddTasksScreen> createState() => _AddTasksScreenState();
+}
+
+class _AddTasksScreenState extends State<AddTasksScreen> {
+  String currentText = '';
 
   @override
   Widget build(BuildContext context) {
@@ -39,13 +48,20 @@ class AddTasksScreen extends StatelessWidget {
                 border: InputBorder.none,
               ),
               style: TextStyle(fontSize: 20.0),
+              onChanged: (enteredText) {
+                currentText = enteredText;
+              },
             ),
           ),
           SizedBox(
             height: 5.0,
           ),
           TextButton(
-            onPressed: () {},
+            onPressed: () {
+              //functionality
+              widget.listOfTasks.add(Task(text: currentText, isDone: false));
+              print('Printing list of tasks ${widget.listOfTasks.length}');
+            },
             child: Container(
               decoration: BoxDecoration(
                 color: Colors.lightBlueAccent,
@@ -60,7 +76,6 @@ class AddTasksScreen extends StatelessWidget {
                   color: Colors.white,
                   fontSize: 25.0,
                   fontWeight: FontWeight.w500,
-                  // backgroundColor: ,
                 ),
               ),
             ),
