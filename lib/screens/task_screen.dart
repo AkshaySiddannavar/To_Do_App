@@ -1,13 +1,19 @@
 import 'package:todo_app/screens/add_tasks_screen.dart';
-
 import 'package:flutter/material.dart';
 import 'package:todo_app/widgets/tasks_list.dart';
+import 'package:todo_app/models/task.dart';
 
 class TasksScreen extends StatelessWidget {
   const TasksScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    List<Task> tasks = [
+      Task(text: 'Buy Milk', isDone: false),
+      Task(text: 'Buy Choclate', isDone: false),
+      Task(text: 'Buy Bread', isDone: false),
+    ];
+
     bool isChecked = false;
     return Scaffold(
       floatingActionButton: FloatingActionButton(
@@ -18,7 +24,7 @@ class TasksScreen extends StatelessWidget {
               child: Container(
                 padding: EdgeInsets.only(
                     bottom: MediaQuery.of(context).viewInsets.bottom),
-                child: AddTasksScreen(),
+                child: AddTasksScreen(tasks),
               ),
             ),
             isScrollControlled: true,
@@ -32,11 +38,11 @@ class TasksScreen extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            padding: EdgeInsets.only(
+            padding: const EdgeInsets.only(
                 top: 60.0, left: 30.0, right: 30.0, bottom: 30.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
+              children: const [
                 CircleAvatar(
                   child: Icon(
                     Icons.list,
