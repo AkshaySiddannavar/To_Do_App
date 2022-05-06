@@ -3,7 +3,7 @@ import 'package:todo_app/models/task.dart';
 
 class AddTasksScreen extends StatefulWidget {
   List<Task> listOfTasks = [];
-  AddTasksScreen(List<Task> listOfTasks);
+  AddTasksScreen({required this.listOfTasks});
 
   @override
   State<AddTasksScreen> createState() => _AddTasksScreenState();
@@ -61,6 +61,7 @@ class _AddTasksScreenState extends State<AddTasksScreen> {
               //functionality
               widget.listOfTasks.add(Task(text: currentText, isDone: false));
               print('Printing list of tasks ${widget.listOfTasks.length}');
+              Navigator.pop(context, widget.listOfTasks);
             },
             child: Container(
               decoration: BoxDecoration(

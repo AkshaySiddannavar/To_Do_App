@@ -24,7 +24,9 @@ class TasksScreen extends StatelessWidget {
               child: Container(
                 padding: EdgeInsets.only(
                     bottom: MediaQuery.of(context).viewInsets.bottom),
-                child: AddTasksScreen(tasks),
+                child: AddTasksScreen(
+                  listOfTasks: tasks,
+                ),
               ),
             ),
             isScrollControlled: true,
@@ -84,7 +86,7 @@ class TasksScreen extends StatelessWidget {
                   topRight: Radius.circular(20.0),
                 ),
               ),
-              child: TasksList(),
+              child: TasksList(listOfTasksToPrintOnScreen: tasks),
             ),
           ),
         ],
