@@ -32,9 +32,6 @@ class _TasksScreenState extends State<TasksScreen> {
             ),
             isScrollControlled: true,
           ).then((value) {
-            print(
-                'Add has been popped and now we are setting state in taask_screen');
-            print('value is $value');
             setState(() {
               widget.initialList = value;
             });
@@ -52,7 +49,7 @@ class _TasksScreenState extends State<TasksScreen> {
                 top: 60.0, left: 30.0, right: 30.0, bottom: 30.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
+              children: [
                 CircleAvatar(
                   child: Icon(
                     Icons.list,
@@ -74,7 +71,7 @@ class _TasksScreenState extends State<TasksScreen> {
                   ),
                 ),
                 Text(
-                  '12 Tasks left',
+                  '${widget.initialList.length} Tasks left',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 18.0,

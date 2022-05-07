@@ -11,11 +11,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<Task> tasks = [
-      Task(text: 'Buy Milk', isDone: false),
-      Task(text: 'Buy Choclate', isDone: false),
-      Task(text: 'Buy Bread', isDone: false),
-    ];
+    List<Task> tasks = [];
     return MaterialApp(
       home: TasksScreen(
         initialList: tasks,
