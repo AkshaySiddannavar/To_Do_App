@@ -59,7 +59,9 @@ class _AddTasksScreenState extends State<AddTasksScreen> {
           TextButton(
             onPressed: () {
               //functionality
-              widget.listOfTasks.add(Task(text: currentText, isDone: false));
+              setState(() {
+                widget.listOfTasks.add(Task(text: currentText, isDone: false));
+              });
               print('Printing list of tasks ${widget.listOfTasks.length}');
               Navigator.pop(context, widget.listOfTasks);
             },

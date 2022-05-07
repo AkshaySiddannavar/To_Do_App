@@ -13,6 +13,8 @@ class TasksList extends StatefulWidget {
 class _TasksListState extends State<TasksList> {
   @override
   Widget build(BuildContext context) {
+    print('tasks_lists is being callllled');
+    print('list of tasks ${widget.listOfTasksToPrintOnScreen}');
     return ListView.builder(
       itemBuilder: ((context, index) {
         return TaskTile(

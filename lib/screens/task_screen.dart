@@ -3,17 +3,18 @@ import 'package:flutter/material.dart';
 import 'package:todo_app/widgets/tasks_list.dart';
 import 'package:todo_app/models/task.dart';
 
-class TasksScreen extends StatelessWidget {
-  const TasksScreen({Key? key}) : super(key: key);
+class TasksScreen extends StatefulWidget {
+  List<Task> initialList = [];
+  // ignore: use_key_in_widget_constructors
+  TasksScreen({required this.initialList});
 
   @override
-  Widget build(BuildContext context) {
-    List<Task> tasks = [
-      Task(text: 'Buy Milk', isDone: false),
-      Task(text: 'Buy Choclate', isDone: false),
-      Task(text: 'Buy Bread', isDone: false),
-    ];
+  State<TasksScreen> createState() => _TasksScreenState();
+}
 
+class _TasksScreenState extends State<TasksScreen> {
+  @override
+  Widget build(BuildContext context) {
     bool isChecked = false;
     return Scaffold(
       floatingActionButton: FloatingActionButton(
@@ -25,12 +26,19 @@ class TasksScreen extends StatelessWidget {
                 padding: EdgeInsets.only(
                     bottom: MediaQuery.of(context).viewInsets.bottom),
                 child: AddTasksScreen(
-                  listOfTasks: tasks,
+                  listOfTasks: widget.initialList,
                 ),
               ),
             ),
             isScrollControlled: true,
-          );
+          ).then((value) {
+            print(
+                'Add has been popped and now we are setting state in taask_screen');
+            print('value is $value');
+            setState(() {
+              widget.initialList = value;
+            });
+          });
         },
         backgroundColor: Colors.lightBlueAccent,
         child: Icon(Icons.add),
@@ -86,7 +94,7 @@ class TasksScreen extends StatelessWidget {
                   topRight: Radius.circular(20.0),
                 ),
               ),
-              child: TasksList(listOfTasksToPrintOnScreen: tasks),
+              child: TasksList(listOfTasksToPrintOnScreen: widget.initialList),
             ),
           ),
         ],
