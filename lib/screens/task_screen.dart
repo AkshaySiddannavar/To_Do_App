@@ -15,7 +15,6 @@ class TasksScreen extends StatefulWidget {
 class _TasksScreenState extends State<TasksScreen> {
   @override
   Widget build(BuildContext context) {
-    bool isChecked = false;
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () {
@@ -38,7 +37,7 @@ class _TasksScreenState extends State<TasksScreen> {
           });
         },
         backgroundColor: Colors.lightBlueAccent,
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
       ),
       backgroundColor: Colors.lightBlueAccent,
       body: Column(
@@ -50,7 +49,7 @@ class _TasksScreenState extends State<TasksScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                CircleAvatar(
+                const CircleAvatar(
                   child: Icon(
                     Icons.list,
                     size: 30.0,
@@ -59,10 +58,10 @@ class _TasksScreenState extends State<TasksScreen> {
                   backgroundColor: Colors.white,
                   radius: 30.0,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10.0,
                 ),
-                Text(
+                const Text(
                   'To Do ',
                   style: TextStyle(
                     color: Colors.white,
@@ -72,7 +71,7 @@ class _TasksScreenState extends State<TasksScreen> {
                 ),
                 Text(
                   '${widget.initialList.length} Tasks left',
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Colors.white,
                     fontSize: 18.0,
                     // fontWeight: FontWeight.normal,
@@ -83,8 +82,8 @@ class _TasksScreenState extends State<TasksScreen> {
           ),
           Expanded(
             child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 20.0),
-              decoration: BoxDecoration(
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
+              decoration: const BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(20.0),
