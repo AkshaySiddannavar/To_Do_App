@@ -17,8 +17,8 @@ class _AddTasksScreenState extends State<AddTasksScreen> {
     return Container(
       color: Color.fromRGBO(117, 117, 117, 1.0),
       child: Container(
-        padding: EdgeInsets.all(20.0),
-        decoration: BoxDecoration(
+        padding: const EdgeInsets.all(20.0),
+        decoration: const BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(20.0),
@@ -27,7 +27,7 @@ class _AddTasksScreenState extends State<AddTasksScreen> {
         ),
         child:
             Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
-          Text(
+          const Text(
             'Add Task',
             textAlign: TextAlign.center,
             style: TextStyle(
@@ -36,24 +36,24 @@ class _AddTasksScreenState extends State<AddTasksScreen> {
               fontWeight: FontWeight.w500,
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 10.0,
           ),
           Center(
             child: TextField(
               autofocus: true,
               textAlign: TextAlign.center,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 focusedBorder: InputBorder.none,
                 border: InputBorder.none,
               ),
-              style: TextStyle(fontSize: 20.0),
+              style: const TextStyle(fontSize: 20.0),
               onChanged: (enteredText) {
                 currentText = enteredText;
               },
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 5.0,
           ),
           TextButton(
@@ -66,14 +66,14 @@ class _AddTasksScreenState extends State<AddTasksScreen> {
               Navigator.pop(context, widget.listOfTasks);
             },
             child: Container(
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: Colors.lightBlueAccent,
                 borderRadius: BorderRadius.all(
                   Radius.circular(15.0),
                 ),
               ),
               padding: EdgeInsets.all(10.0),
-              child: Text(
+              child: const Text(
                 'Add',
                 style: TextStyle(
                   color: Colors.white,
