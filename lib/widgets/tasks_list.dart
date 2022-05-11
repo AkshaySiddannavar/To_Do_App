@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:todo_app/widgets/tasks_tile.dart';
 import 'package:todo_app/models/task.dart';
+import 'package:provider/provider.dart';
+import 'package:todo_app/models/all_task_data.dart';
+import 'package:provider/provider.dart';
 
 class TasksList extends StatefulWidget {
-  List<Task> listOfTasksToPrintOnScreen = [];
-  TasksList({required this.listOfTasksToPrintOnScreen});
+  TasksList();
 
   @override
   State<TasksList> createState() => _TasksListState();
@@ -14,19 +16,22 @@ class _TasksListState extends State<TasksList> {
   @override
   Widget build(BuildContext context) {
     print('tasks_lists is being callllled');
-    print('list of tasks ${widget.listOfTasksToPrintOnScreen}');
-    return ListView.builder(
-      itemBuilder: ((context, index) {
-        return TaskTile(
-            title: widget.listOfTasksToPrintOnScreen[index].text,
-            isChecked: widget.listOfTasksToPrintOnScreen[index].isDone,
-            checkboxCallBack: (checkboxState) {
-              setState(() {
-                widget.listOfTasksToPrintOnScreen[index].toggleDone();
-              });
-            });
+    print('list of tasks');
+
+    return Consumer<AllTaskData>(
+      builder: ((context, value, child) {
+        return ListView.builder(
+          itemBuilder: ((context, index) {
+            return TaskTile(
+                title: value.getTaskText(index),
+                isChecked: value.getTaskCheck(index),
+                checkboxCallBack: (checkboxState) {
+                  value.toggleTaskAt(index);
+                });
+          }),
+          itemCount: value.getLength(),
+        );
       }),
-      itemCount: widget.listOfTasksToPrintOnScreen.length,
     );
   }
 }

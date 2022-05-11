@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:todo_app/models/task.dart';
+import 'package:provider/provider.dart';
+import 'package:todo_app/models/all_task_data.dart';
 
 class AddTasksScreen extends StatefulWidget {
-  List<Task> listOfTasks = [];
-  AddTasksScreen({required this.listOfTasks});
+  AddTasksScreen();
 
   @override
   State<AddTasksScreen> createState() => _AddTasksScreenState();
@@ -58,12 +59,9 @@ class _AddTasksScreenState extends State<AddTasksScreen> {
           ),
           TextButton(
             onPressed: () {
-              //functionality
-              setState(() {
-                widget.listOfTasks.add(Task(text: currentText, isDone: false));
-              });
-              print('Printing list of tasks ${widget.listOfTasks.length}');
-              Navigator.pop(context, widget.listOfTasks);
+              Provider.of<AllTaskData>(context, listen: false)
+                  .addTasks(taskText: currentText, isChecked: false);
+              Navigator.pop(context);
             },
             child: Container(
               decoration: const BoxDecoration(

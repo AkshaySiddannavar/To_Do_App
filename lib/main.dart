@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:todo_app/models/all_task_data.dart';
 import 'package:todo_app/screens/task_screen.dart';
 import 'package:todo_app/models/task.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,10 +13,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<Task> tasks = [];
-    return MaterialApp(
-      home: TasksScreen(
-        initialList: tasks,
+    return ChangeNotifierProvider(
+      create: (context) => AllTaskData(),
+      child: MaterialApp(
+        home: TasksScreen(),
       ),
     );
   }

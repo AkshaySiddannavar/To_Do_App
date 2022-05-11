@@ -2,11 +2,12 @@ import 'package:todo_app/screens/add_tasks_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:todo_app/widgets/tasks_list.dart';
 import 'package:todo_app/models/task.dart';
+import 'package:provider/provider.dart';
+import 'package:todo_app/models/all_task_data.dart';
 
 class TasksScreen extends StatefulWidget {
-  List<Task> initialList = [];
   // ignore: use_key_in_widget_constructors
-  TasksScreen({required this.initialList});
+  TasksScreen();
 
   @override
   State<TasksScreen> createState() => _TasksScreenState();
@@ -24,17 +25,11 @@ class _TasksScreenState extends State<TasksScreen> {
               child: Container(
                 padding: EdgeInsets.only(
                     bottom: MediaQuery.of(context).viewInsets.bottom),
-                child: AddTasksScreen(
-                  listOfTasks: widget.initialList,
-                ),
+                child: AddTasksScreen(),
               ),
             ),
             isScrollControlled: true,
-          ).then((value) {
-            setState(() {
-              widget.initialList = value;
-            });
-          });
+          );
         },
         backgroundColor: Colors.lightBlueAccent,
         child: const Icon(Icons.add),
@@ -70,7 +65,7 @@ class _TasksScreenState extends State<TasksScreen> {
                   ),
                 ),
                 Text(
-                  '${widget.initialList.length} Tasks left',
+                  '${Provider.of<AllTaskData>(context).getTasksLeft()} Tasks left',
                   style: const TextStyle(
                     color: Colors.white,
                     fontSize: 18.0,
@@ -90,7 +85,7 @@ class _TasksScreenState extends State<TasksScreen> {
                   topRight: Radius.circular(20.0),
                 ),
               ),
-              child: TasksList(listOfTasksToPrintOnScreen: widget.initialList),
+              child: TasksList(),
             ),
           ),
         ],
