@@ -37,4 +37,10 @@ class AllTaskData extends ChangeNotifier {
     }
     return numberOfTasksLeft;
   }
+
+  void removeTask(int index) {
+    final task = _tasks[index];
+    _tasks.remove(task);
+    notifyListeners();
+  }
 }

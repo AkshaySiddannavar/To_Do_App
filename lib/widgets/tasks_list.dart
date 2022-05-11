@@ -23,11 +23,16 @@ class _TasksListState extends State<TasksList> {
         return ListView.builder(
           itemBuilder: ((context, index) {
             return TaskTile(
-                title: value.getTaskText(index),
-                isChecked: value.getTaskCheck(index),
-                checkboxCallBack: (checkboxState) {
-                  value.toggleTaskAt(index);
-                });
+              title: value.getTaskText(index),
+              isChecked: value.getTaskCheck(index),
+              checkboxCallBack: (checkboxState) {
+                value.toggleTaskAt(index);
+              },
+              longPressCallback: () {
+                print('long press triggered');
+                value.removeTask(index);
+              },
+            );
           }),
           itemCount: value.getLength(),
         );
