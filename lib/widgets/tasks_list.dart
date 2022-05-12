@@ -14,9 +14,6 @@ class TasksList extends StatefulWidget {
 class _TasksListState extends State<TasksList> {
   @override
   Widget build(BuildContext context) {
-    print('tasks_lists is being callllled');
-    print('list of tasks');
-
     return Consumer<AllTaskData>(
       builder: ((context, value, child) {
         return ListView.builder(
@@ -28,7 +25,6 @@ class _TasksListState extends State<TasksList> {
                 value.toggleTaskAt(index);
               },
               longPressCallback: () {
-                print('long press triggered');
                 value.removeTask(index);
               },
             );

@@ -68,7 +68,6 @@ class _TasksScreenState extends State<TasksScreen> {
                   style: const TextStyle(
                     color: Colors.white,
                     fontSize: 18.0,
-                    // fontWeight: FontWeight.normal,
                   ),
                 ),
               ],
