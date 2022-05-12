@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:provider/provider.dart';
 import 'package:todo_app/models/task.dart';
 
 class AllTaskData extends ChangeNotifier {

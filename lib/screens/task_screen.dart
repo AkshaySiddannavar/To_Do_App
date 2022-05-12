@@ -1,7 +1,6 @@
 import 'package:todo_app/screens/add_tasks_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:todo_app/widgets/tasks_list.dart';
-import 'package:todo_app/models/task.dart';
 import 'package:provider/provider.dart';
 import 'package:todo_app/models/all_task_data.dart';
 
