@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:todo_app/models/task.dart';
 
 class AllTaskData extends ChangeNotifier {
-  List<Task> _tasks = [Task(text: 'abc', isDone: false)];
+  final List<Task> _tasks = [Task(text: 'abc', isDone: false)];
 
   void addTasks({String taskText = '', bool isChecked = false}) {
     _tasks.add(Task(text: taskText, isDone: isChecked));

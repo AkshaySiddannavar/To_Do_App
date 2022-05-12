@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:todo_app/models/all_task_data.dart';
 
 class AddTasksScreen extends StatefulWidget {
-  AddTasksScreen();
+  const AddTasksScreen({Key? key}) : super(key: key);
 
   @override
   State<AddTasksScreen> createState() => _AddTasksScreenState();
@@ -15,7 +15,7 @@ class _AddTasksScreenState extends State<AddTasksScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Color.fromRGBO(117, 117, 117, 1.0),
+      color: const Color.fromRGBO(117, 117, 117, 1.0),
       child: Container(
         padding: const EdgeInsets.all(20.0),
         decoration: const BoxDecoration(
@@ -69,7 +69,7 @@ class _AddTasksScreenState extends State<AddTasksScreen> {
                   Radius.circular(15.0),
                 ),
               ),
-              padding: EdgeInsets.all(10.0),
+              padding: const EdgeInsets.all(10.0),
               child: const Text(
                 'Add',
                 style: TextStyle(

@@ -5,8 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:todo_app/models/all_task_data.dart';
 
 class TasksScreen extends StatefulWidget {
-  // ignore: use_key_in_widget_constructors
-  TasksScreen();
+  const TasksScreen({Key? key}) : super(key: key);
 
   @override
   State<TasksScreen> createState() => _TasksScreenState();
@@ -24,7 +23,7 @@ class _TasksScreenState extends State<TasksScreen> {
               child: Container(
                 padding: EdgeInsets.only(
                     bottom: MediaQuery.of(context).viewInsets.bottom),
-                child: AddTasksScreen(),
+                child: const AddTasksScreen(),
               ),
             ),
             isScrollControlled: true,
@@ -83,7 +82,7 @@ class _TasksScreenState extends State<TasksScreen> {
                   topRight: Radius.circular(20.0),
                 ),
               ),
-              child: TasksList(),
+              child: const TasksList(),
             ),
           ),
         ],
