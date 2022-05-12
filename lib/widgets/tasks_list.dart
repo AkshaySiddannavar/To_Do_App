@@ -4,14 +4,9 @@ import 'package:provider/provider.dart';
 import 'package:todo_app/models/all_task_data.dart';
 import 'package:provider/provider.dart';
 
-class TasksList extends StatefulWidget {
+class TasksList extends StatelessWidget {
   TasksList();
 
-  @override
-  State<TasksList> createState() => _TasksListState();
-}
-
-class _TasksListState extends State<TasksList> {
   @override
   Widget build(BuildContext context) {
     return Consumer<AllTaskData>(
